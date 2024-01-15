@@ -1,0 +1,30 @@
+server:
+ port: 8080
+ error: 
+  include-message: always
+  include-binding-errors: always 
+  include-stacktrace: never
+  
+spring: 
+ datasource: 
+  url: jdbc:postgresql://localhost:5432/LibraryDatabase 
+  username: LibraryUser
+  password: admin123
+  driver-class-name: org.postgresql.Driver
+ 
+ jpa:
+  show_sql: true
+  database-platform: org.hibernate.dialect.PostgreSQLDialect
+  hibernate:
+   ddl-auto: update
+   
+logging:
+ file:
+  name: logs/library.log
+ pattern:
+  file: "%d %-5level [%thread] %logger:%msg%n"
+ 
+ level:
+  '[org.springframework.web]': INFO
+  '[org.hibernate]': INFO
+  '[com.library]': DEBUG
